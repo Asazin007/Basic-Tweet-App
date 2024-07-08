@@ -54,9 +54,6 @@ Contributions are welcome! Please follow these steps to contribute:
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a new Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
@@ -64,10 +61,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Django documentation and community for guidance and support
 
 
-### Notes:
-- Replace `https://github.com/yourusername/TweetApp.git` with your actual repository URL.
-- Ensure `requirements.txt` includes all necessary dependencies.
-- Customize URLs (`http://localhost:8000/`) based on your Django project setup.
-- Adjust the License section to match your project's actual licensing terms.
 
-This `README.md` file provides comprehensive instructions for setting up, using, contributing to, and understanding your TweetApp Django project. Adjust it further based on specific details or additional features of your application.
