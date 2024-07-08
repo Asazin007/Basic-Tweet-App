@@ -12,7 +12,11 @@ Tweet App
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">User Info</h5>
+                    {% if user.is_authenticated %}
                     <p class="card-text mb-2">Welcome, {{ user.username }}!</p>
+                    {% else %}
+                    <p class="card-text mb-2">Welcome, Guest!</p>
+                    {% endif %}
                     <a href="{%url 'tweet_create'%}" class="btn btn-secondary">Create Tweet</a>
                 </div>
             </div>
@@ -36,8 +40,10 @@ Tweet App
                 <br>
                 <small class="text-muted">Posted by {{ tweet.user.username }} on {{ tweet.created_at }}</small>
                 <br>
+                {% if tweet.user == user %}
                 <a href="{%url 'tweet_edit' tweet.id %}" class="btn btn-secondary mt-2 ml-2">Edit Tweet</a>
                 <a href="{%url 'tweet_delete' tweet.id %}" class="btn btn-danger mt-2 ml-2">Delete</a>
+                {% endif %}
                 <hr>
                 </div>
                     {% endfor %}

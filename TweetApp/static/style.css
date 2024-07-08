@@ -1,0 +1,31 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.navbar-custom {
+    background-color: #1DA1F2;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: white;
+    transition: color 0.2s;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #f0f8ff;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    text-align: center;
+}
