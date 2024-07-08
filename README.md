@@ -1,4 +1,4 @@
-```markdown
+
 ## Basic Tweet App
 
 TweetApp is a simple Django application for managing tweets.
@@ -20,7 +20,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/TweetApp.git
+   git clone https://github.com/Asazin007/Basic-Tweet-App.git
    cd TweetApp
    ```
 
@@ -62,7 +62,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Bootstrap for the responsive UI components
 - Django documentation and community for guidance and support
-```
+
 
 ### Notes:
 - Replace `https://github.com/yourusername/TweetApp.git` with your actual repository URL.
