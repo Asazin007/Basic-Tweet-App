@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Tweet App
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4  flex-grow-1">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Sidebar content (e.g., user info, links) -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">User Info</h5>
+                    <p class="card-text mb-2">Welcome, {{ user.username }}!</p>
+                    <a href="{%url 'tweet_create'%}" class="btn btn-secondary">Create Tweet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- Form to create a new tweet -->
+            
+            <!-- Display tweets -->
+            
+
+                    {% for tweet in tweets %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ tweet.user.username }}</h5>
+                    <div class="tweet mb-3">
+                            
+                    <p class="card-text">{{ tweet.text }}</p>
+                {% if tweet.photo %}
+                    <img src="{{ tweet.photo.url }}" class="img-fluid" alt="Tweet photo">
+                {% endif %}
+                <br>
+                <small class="text-muted">Posted by {{ tweet.user.username }} on {{ tweet.created_at }}</small>
+                <br>
+                <a href="{%url 'tweet_edit' tweet.id %}" class="btn btn-secondary mt-2 ml-2">Edit Tweet</a>
+                <a href="{%url 'tweet_delete' tweet.id %}" class="btn btn-danger mt-2 ml-2">Delete</a>
+                <hr>
+                </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+{%endblock%}

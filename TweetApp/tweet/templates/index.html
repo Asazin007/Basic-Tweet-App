@@ -5,19 +5,56 @@ Tweet App
 {% endblock %}
 
 {% block content %}
-<div class="container mt-4 flex-grow-1"><h2 class="text-center">Welcome to  Tweet App
-     </h2></div>
-{% comment %} <div class="container mt-4 flex-grow-1">
-        <div class="row">
-            <div class="col-md-3">
-                <!-- Sidebar content (e.g., user info, links) -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">User Info</h5>
-                        <p class="card-text mb-2">Welcome, {{ user.username }}!</p>
-                        <a href="#" class="btn btn-secondary">Create Tweet</a>
-                    </div>
+
+<div class="container mt-4  flex-grow-1">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Sidebar content (e.g., user info, links) -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">User Info</h5>
+                    <p class="card-text mb-2">Welcome, {{ user.username }}!</p>
+                    <a href="#" class="btn btn-secondary">Create Tweet</a>
                 </div>
             </div>
-            <div class="col-md-9"> {% endcomment %}
+        </div>
+        <div class="col-md-9">
+            <!-- Form to create a new tweet -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Create a New Tweet</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_text" class="form-label">Tweet</label>
+                            {{ form.text }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_photo" class="form-label">Photo</label>
+                            {{ form.photo }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tweet</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Display tweets -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tweets</h5>
+                    {% for tweet in tweets %}
+                        <div class="tweet mb-3">
+                            <p class="card-text">{{ tweet.text }}</p>
+                            {% if tweet.photo %}
+                                <img src="{{ tweet.photo.url }}" class="img-fluid" alt="Tweet photo">
+                            {% endif %}
+                            <small class="text-muted">Posted by {{ tweet.user.username }} on {{ tweet.created_at }}</small>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

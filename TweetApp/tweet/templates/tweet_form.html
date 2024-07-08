@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Tweet App
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4 ">
+                    
+                    {% if form.instance.pk %}Edit Tweet
+                    {% else %}
+                    Create Tweet
+                    {% endif %}
+
+                </h4>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_text" class="form-label">Tweet</label>
+                        {{ form.text }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_photo" class="form-label">Photo</label>
+                        {{ form.photo }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Tweet</button>
+                </form>
+               <a href="" class="btn btn-secondary mt-3">Back to tweets</a>
+            </div>
+             
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
