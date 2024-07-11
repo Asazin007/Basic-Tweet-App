@@ -28,9 +28,9 @@ Tweet App
             
 
                     {% for tweet in tweets %}
-        <div class="card">
+        <div class="card mt-2">
             <div class="card-body">
-                <h5 class="card-title">{{ tweet.user.username }}</h5>
+                <h5 class="card-title">{{ tweet.user.username }}</h5><hr>
                     <div class="tweet mb-3">
                             
                     <p class="card-text">{{ tweet.text }}</p>
@@ -44,11 +44,14 @@ Tweet App
                 <a href="{%url 'tweet_edit' tweet.id %}" class="btn btn-secondary mt-2 ml-2">Edit Tweet</a>
                 <a href="{%url 'tweet_delete' tweet.id %}" class="btn btn-danger mt-2 ml-2">Delete</a>
                 {% endif %}
-                <hr>
-                </div>
+             <hr>
+               
+                 </div></div></div>
                     {% endfor %}
-                </div>
-            </div>
+                    
+                   
+                
+            
         </div>
     </div>
 </div>
